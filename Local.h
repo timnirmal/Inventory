@@ -14,6 +14,17 @@ private:
     string nameOrigin;
     string dateDep;
     int vehicleId;
+public:
+    Local();
+
+    void setNameOrigin(string name);
+    void setDateDep(string date);
+    void setVehicleID(int id);
+
+    string getNameOrigin();
+    string getDateDep();
+    int getVehicleID();
+
 };
 
 

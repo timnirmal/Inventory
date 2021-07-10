@@ -21,3 +21,27 @@ void Staff::setUserName(string name) {
 string Staff::getUserName() {
 return userName;
 }
+
+void Staff::setPassword(string pass) {
+password = pass;
+}
+
+void Staff::setPosition(string pos) {
+Position = pos;
+}
+
+void Staff::setDateJoined(string date) {
+dateJoined = date;
+}
+
+string Staff::getPassword() {
+    return password;
+}
+
+string Staff::getPosition() {
+    return Position;
+}
+
+string Staff::getDateJoined() {
+    return dateJoined;
+}

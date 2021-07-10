@@ -20,15 +20,15 @@ public:
 
     void setUserID();
     void setUserName(string name);
-    void setPassword();
-    void setPosition();
-    void setDateJoined();
+    void setPassword(string pass);
+    void setPosition(string pos);
+    void setDateJoined(string date);
 
     int getUserID();
     string getUserName();
-    void getPassword();
-    void getPosition();
-    void getDateJoined();
+    string getPassword();
+    string getPosition();
+    string getDateJoined();
 };
 
 

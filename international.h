@@ -15,6 +15,18 @@ private:
     string countryOrigin;
     string dateArrHarbour;
     int shipId;
+
+public:
+    international();
+
+    void setCountryOrigin(string country);
+    void setDateArrHarbour(string date);
+    void setShipID(int id);
+
+    string getCountryOrigin();
+    string getDateArrHarbour();
+    int getShipID();
+
 };
 
 

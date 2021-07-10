@@ -119,17 +119,45 @@ int main() {
 
     cout<<"Gonig to staff";
     ////================================= Staff ===============
-    Owner owners;    //id = 0
-    owners.setUserName("Mal Kanthi");
-    cout<<"UID "<<owners.getUserID()<<endl;
+    Owner owner;    //id = 0
 
-    cout<<"Owner is "<< owners.getUserName();
 
     cout<<"Try flooe worker";
     FloorWorker jaye;
     jaye.setUserName("Jaye");
     cout<<"UID "<<jaye.getUserID()<<endl;
     cout<<"Owner is "<< jaye.getUserName();
+
+
+    ////================================= Supply ===============
+    international lol;
+    Local lo;
+    lo.setItemName("Lux");
+    lo.setNameOrigin("gedara");
+
+    cout<<endl;
+
+    cout<<lo.getItemName(); cout<<endl;
+    cout<<lo.getNameOrigin()<<"  "<<lo.getItemID() <<"\n int  "<<lol.getItemID();
+owner.setPassword("1234");
+
+    //Programme Starts Here
+
+    //Login
+    int UID;
+    string Password;
+
+    cout << "=========== LOGIN SCREEN ===================\n\n";
+    cout<< "Enter User ID : ";
+    cin>>UID;
+    cout<< "Password : ";
+    cin>> Password;
+
+    if(owner.getUserID() == 0 && owner.getPassword() == Password){
+        cout<<"Welcome "<< owner.getUserName()<<"..."<<endl<<"You are Logged as Admin";
+    } else{
+
+    }
 
     return 0;
 }
