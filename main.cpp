@@ -7,6 +7,8 @@
 #include "international.h"
 #include "Local.h"
 #include "Staff.h"
+#include "Supply.h"
+
 
 using namespace std;
 
@@ -43,6 +45,45 @@ numberItemBrand::numberItemBrand()  {
 
 /////================================== STAFF ========================================
 
+class FloorWorker : virtual public Staff {
+public:
+    FloorWorker();
+};
+
+FloorWorker::FloorWorker() {
+    cout<<"\n\nIm Flow worker\n";
+}
+
+class Cashier : virtual public Staff {
+public:
+    Cashier();
+};
+
+Cashier::Cashier() {
+    cout<<"\n\nIm Cashier\n";
+}
+
+class Manager : public FloorWorker, public Cashier {
+public:
+    Manager();
+};
+
+Manager::Manager() {
+    cout<<"\n\nIm Manager\n";
+}
+
+class Owner : public Manager {
+public:
+    Owner();
+
+};
+
+Owner::Owner() {
+    cout<<"\n\nIm Owner\n";
+}
+
+/////================================== Main ========================================
+
 int Staff::countStaff=-1;
 int Supply::countSup=-1;
 int Items::count=-1;
@@ -50,20 +91,21 @@ int Items::count=-1;
 int main() {
     //login
 
+    ////================================= Items ===============
     numberGram Produce;
-    Produce.getGramNumberItem();
+    cout<<Produce.getGramNumberItem();
     numberGram Meat_Seafood;
-    Meat_Seafood.getGramNumberItem();
+    cout<<Meat_Seafood.getGramNumberItem();
 
     numberGramBrand Grains;
 
-    Grains.getGramNumberItem();
+    cout<<Grains.getGramNumberItem();
 
     cout<<endl<<"Grams Ends here\n\n";
 
     numberItemBrand Bakery;
     cout<<"\nIts bakery\n";
-    Bakery.getGramNumberItem();
+    cout<<Bakery.getGramNumberItem();
     cout<<"\nIts bakery\n";
     numberItemBrand Frozen;
     numberItemBrand Dairy;
@@ -74,8 +116,21 @@ int main() {
 
 
     Items t;
-    t.printObjNumber();
-    Items::printObjCount();
+
+    cout<<"Gonig to staff";
+    ////================================= Staff ===============
+    Owner owners;    //id = 0
+    owners.setUserName("Mal Kanthi");
+    cout<<"UID "<<owners.getUserID()<<endl;
+
+    cout<<"Owner is "<< owners.getUserName();
+
+    cout<<"Try flooe worker";
+    FloorWorker jaye;
+    jaye.setUserName("Jaye");
+    cout<<"UID "<<jaye.getUserID()<<endl;
+    cout<<"Owner is "<< jaye.getUserName();
+
     return 0;
 }
 

@@ -18,21 +18,26 @@ private:
     float quantity;
     bool gramNumberItem;    //Gram = 0
     string DateArrival;
-    bool status;
+    bool status;    // Not approved = 0
 
     static int countSup;
 
 public:
     Supply();
-    void setItem();
     void setItemID();
-    void setQuantity();
-    void setGramNumberItem(bool);
+    void setItemName(string name);
+    void setGramNumberItem(bool bval);
+    void setDateArrival(string date);
+    void setStatus(bool bstat);
 
-    void getItem();
-    void getItemID();
-    void getQuantity();
-    void getGramNumberItem();
+    int getItemID();
+    string getItemName();
+    float getQuantity();
+    bool getGramNumberItem();
+    string getDateArrival();
+    bool getStatus();
+
+    void setQuantity(float val);
 };
 
 

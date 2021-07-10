@@ -23,35 +23,28 @@ private:
     static int count;
 public:
     Items();
+    void setItemID(int val);
+    void setItemName(string name);
+    void setQuantity(int val);
+    void setGramNumberItem(bool val);
+    void setRetailsPrice(int val);
+    void setDiscounts(int val);
+    void setPromotionsItem(int val);
+    void setFinalPrice(int val);
+    void setCategoryId(int val);
+
+
+    int getItemID();
+    string getItemName();
+    int getQuantity();
+    bool getGramNumberItem();
+    int getRetailsPrice();
+    int getDiscounts();
+    int getPromotionsItem();
+    int getFinalPrice();
+    int getCategoryId();
+
     void setItem();
-    void setItemID();
-    void setQuantity();
-    void setGramNumberItem(bool);
-    void setRetailsPrice();
-    void setDiscounts();
-    void setPromotionsItem();
-    void setFinalPrice();
-    void setCategoryId();
-
-
-    void getItem();
-    void getItemID();
-    void getQuantity();
-    void getGramNumberItem();
-    void getRetailsPrice();
-    void getDiscounts();
-    void getPromotionsItem();
-    void getFinalPrice();
-    void getCategoryId();
-
-    void printObjNumber(void)
-    {
-        cout << "object number :" << itemID << "\n";
-    }
-    static void printObjCount(void)
-    {
-        cout << "count:" << count<< "\n";
-    }
 };
 
 

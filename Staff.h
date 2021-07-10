@@ -19,13 +19,13 @@ public:
     Staff();
 
     void setUserID();
-    void setUserName();
+    void setUserName(string name);
     void setPassword();
     void setPosition();
     void setDateJoined();
 
-    void getUserID();
-    void getUserName();
+    int getUserID();
+    string getUserName();
     void getPassword();
     void getPosition();
     void getDateJoined();
