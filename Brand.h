@@ -15,16 +15,23 @@ private:
     bool local_imported; //0 for local
     int promotionBrand;
 public:
-    void setBrandId();
-    void setBrandName();
-    void setLocalImported();
-    void setPromtionBrand();
+    void setBrandId(int val);
+    void setBrandName(string name);
+    void setLocalImported(bool bval);
+    void setPromtionBrand(int val);
 
-    void getBrandId();
-    void getBrandName();
-    void getLocalImported();
-    void getPromtionBrand();
+    int getBrandId();
+    string getBrandName();
+    bool getLocalImported();
+    int getPromtionBrand();
 };
 
 
 #endif //INVENTORY_BRAND_H
+
+/*
+- brandID : int
+- brandName : string
+- local_imported : bool
+- promotionBrand : int
+ */

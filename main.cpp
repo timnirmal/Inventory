@@ -8,7 +8,7 @@
 #include "Local.h"
 #include "Staff.h"
 #include "Supply.h"
-
+#include <vector>
 
 using namespace std;
 
@@ -16,11 +16,13 @@ enum category_list{Produce,Meat_Seafood,Grains,Bakery,Frozen,Dairy,Snacks_Sweets
 //Produce - 0,Meat_Seafood - 1,
 //Grains - 2,
 //Bakery - 3,Frozen - 4,Dairy - 5, Snacks_Sweets - 6,Beverages - 7,Health_Beauty - 8,Condiments_Spices - 9
+enum roles {owner_role, manager_role, worker_role, cashier_role};
 
+int role = 0;
 
 /////================================== INVENTORY ========================================
 
-class numberGram : public Items, public Category{
+class numberGram : public Category, public Items{
 public:
     numberGram();
 };
@@ -51,7 +53,10 @@ public:
 };
 
 FloorWorker::FloorWorker() {
-    cout<<"\n\nIm Flow worker\n";
+    setPosition("Floor Worker");
+    //positionID = 2;
+    if(getUserID()!= 0)
+        setUserID((getUserID()*10) + 2);
 }
 
 class Cashier : virtual public Staff {
@@ -60,7 +65,10 @@ public:
 };
 
 Cashier::Cashier() {
-    cout<<"\n\nIm Cashier\n";
+    setPosition("Cashier");
+    //positionID = 3;
+    if (getUserID() != 0)
+        setUserID((getUserID() * 10) + 3);
 }
 
 class Manager : public FloorWorker, public Cashier {
@@ -69,7 +77,10 @@ public:
 };
 
 Manager::Manager() {
-    cout<<"\n\nIm Manager\n";
+    setPosition("Manager");
+    //positionID = 1;
+    if(getUserID()!= 0)
+        setUserID((getUserID() * 10) + 1);
 }
 
 class Owner : public Manager {
@@ -79,7 +90,7 @@ public:
 };
 
 Owner::Owner() {
-    cout<<"\n\nIm Owner\n";
+    setPosition("Owner");
 }
 
 /////================================== Main ========================================
@@ -92,20 +103,42 @@ int main() {
     //login
 
     ////================================= Items ===============
+
+    //10 Vectors for Store items.
+    vector<numberGram> Produce;
+    vector<numberGram> Meat_Seafood;
+    vector<numberGramBrand> Grains;
+    vector<numberItemBrand> Bakery;
+    vector<numberItemBrand> Frozen;
+    vector<numberItemBrand> Dairy;
+    vector<numberItemBrand> Snacks_Sweets;
+    vector<numberItemBrand> Beverages;
+    vector<numberItemBrand> Health_Beauty;
+    vector<numberItemBrand> Condiments_Spices;
+
+    //Example of adding items to category vector
+    for(int i=0; i<2;i++){
+        numberGram lux;
+        Produce.push_back(lux);
+    }
+
+    cout<<Produce[0].getItemID()<<endl;
+    cout<<Produce[1].getItemID()<<endl;
+
+    /*
     numberGram Produce;
-    cout<<Produce.getGramNumberItem();
     numberGram Meat_Seafood;
-    cout<<Meat_Seafood.getGramNumberItem();
+    cout<<Meat_Seafood.getItemID()<<endl;
 
     numberGramBrand Grains;
 
-    cout<<Grains.getGramNumberItem();
+    cout<<Grains.getItemID()<<endl;
 
     cout<<endl<<"Grams Ends here\n\n";
 
     numberItemBrand Bakery;
     cout<<"\nIts bakery\n";
-    cout<<Bakery.getGramNumberItem();
+    cout<<Bakery.getItemID();
     cout<<"\nIts bakery\n";
     numberItemBrand Frozen;
     numberItemBrand Dairy;
@@ -113,24 +146,64 @@ int main() {
     numberItemBrand Beverages;
     numberItemBrand Health_Beauty;
     numberItemBrand Condiments_Spices;
+    */
 
 
-    Items t;
 
     cout<<"Gonig to staff";
     ////================================= Staff ===============
     Owner owner;    //id = 0
+    //Using Predefined 2 managers ,  5 cashier, 10 floor workers
+    //Manager manager[2];
+    //Cashier cashier[5];
+    //FloorWorker worker[10];
 
+    vector<Manager> manager;
+    vector<FloorWorker> worker;
+    vector<Cashier> cashier;
+
+    for(int i=0; i<15;i++){
+        Manager staff;
+        manager.push_back(staff);
+    }
+    cout << endl << endl << owner.getPosition() << endl;
+    cout << owner.getUserID() << endl;
+
+    for(int i =0; i<manager.size();i++) {
+        cout << endl << endl << manager[i].getPosition() << endl;
+        cout << manager[i].getUserID() << endl;
+    }
+
+    for(int i=0; i<2;i++){
+        Cashier staff;
+        cashier.push_back(staff);
+    }
+    for(int i =0; i<cashier.size();i++) {
+        cout << endl << endl << cashier[i].getPosition() << endl;
+        cout << cashier[i].getUserID() << endl;
+    }
+    for(int i=0; i<2;i++){
+        FloorWorker staff;
+        worker.push_back(staff);
+    }
+    for(int i =0; i<worker.size();i++) {
+        cout << endl << endl << worker[i].getPosition() << endl;
+        cout << worker[i].getUserID() << endl;
+    }
+    /*
+    cout<<"This =================== "<<manager[0].getUserID()<<endl;
+    cout<<"This =================== "<<manager[1].getUserID()<<endl;
+    cout<<"This =================== "<<worker[0].getUserID()<<endl;
 
     cout<<"Try flooe worker";
     FloorWorker jaye;
     jaye.setUserName("Jaye");
     cout<<"UID "<<jaye.getUserID()<<endl;
     cout<<"Owner is "<< jaye.getUserName();
-
+*/
 
     ////================================= Supply ===============
-    international lol;
+    /*international lol;
     Local lo;
     lo.setItemName("Lux");
     lo.setNameOrigin("gedara");
@@ -138,14 +211,44 @@ int main() {
     cout<<endl;
 
     cout<<lo.getItemName(); cout<<endl;
-    cout<<lo.getNameOrigin()<<"  "<<lo.getItemID() <<"\n int  "<<lol.getItemID();
-owner.setPassword("1234");
+    cout<<lo.getNameOrigin()<<"  "<<lo.getItemID() <<"\n int  "<<lol.getItemID();*/
+
+    vector<international> internationalSupply;
+    vector<Local> localSupply;
+
+    cout<<"Local Supply"<<endl;
+    for(int i=0; i<2;i++){
+        Local lux;
+        localSupply.push_back(lux);
+    }
+
+    cout<<endl<<localSupply[0].getItemID()<<endl;
+    cout<<endl<<localSupply[1].getItemID()<<endl;
+
+    cout<<"International Supply"<<endl;
+    for(int i=0; i<2;i++){
+        international lux;
+        internationalSupply.push_back(lux);
+    }
+
+    cout<<endl<<internationalSupply[0].getItemID()<<endl;
+    cout<<endl<<internationalSupply[1].getItemID()<<endl;
+
+
+    owner.setPassword("1234");
+
+
+
 
     //Programme Starts Here
 
     //Login
     int UID;
     string Password;
+    int position_cal;
+
+    cout<<cashier[1].getUserID()-(cashier[1].getUserID()/10)*10<<endl;
+    cout<<worker[1].getUserID()-(worker[1].getUserID()/10)*10<<endl;
 
     cout << "=========== LOGIN SCREEN ===================\n\n";
     cout<< "Enter User ID : ";
@@ -153,11 +256,52 @@ owner.setPassword("1234");
     cout<< "Password : ";
     cin>> Password;
 
-    if(owner.getUserID() == 0 && owner.getPassword() == Password){
-        cout<<"Welcome "<< owner.getUserName()<<"..."<<endl<<"You are Logged as Admin";
-    } else{
-
+    switch (UID) {
+        case 0:
+            //Owner
+            if(owner.getUserID() == UID && owner.getPassword() == Password){
+                cout<<"Welcome "<< owner.getUserName()<<"..."<<endl<<"You are Logged as Admin";
+                role = 0;
+            }
+            break;
+        case 1:
+            //Manager
+            for (int i=0; i<manager.size();i++){
+                if(manager[i].getUserID() == UID && manager[i].getPassword() == Password){
+                    cout<<"Welcome "<< manager[i].getUserName()<<"..."<<endl<<"You are Logged as Manager";
+                    role = 1;
+                }
+            }
+            break;
+        case 2:
+            //Floor Worker
+            for (int i=0; i<worker.size();i++){
+                if(worker[i].getUserID() == UID && worker[i].getPassword() == Password){
+                    cout<<"Welcome "<< worker[i].getUserName()<<"..."<<endl<<"You are Logged as Floor Worker";
+                    role = 2;
+                }
+            }
+            break;
+        case 3:
+            //Cashier
+            for (int i=0; i<cashier.size();i++){
+                if(cashier[i].getUserID() == UID && cashier[i].getPassword() == Password){
+                    cout<<"Welcome "<< cashier[i].getUserName()<<"..."<<endl<<"You are Logged as Cashier";
+                    role = 3;
+                }
+            }
+            else {
+                cout<<"HUMM";
+            }
+            break;
+        default:
+            cout<<"Your input is wrong";
+            return 0;
     }
+
+    //It is requre a Database to keep this initial data. Since we dont use such a thing this stag
+    //4 Prefedined User accounts  will be used. (More accounts can be added.)
+
 
     return 0;
 }
@@ -277,3 +421,12 @@ a manager or the owner is required to first make a new entry for the item in the
 Once the stock has been successfully added to the inventory, the status of the supply shipment must be changed to “approved”.
 
 */
+
+
+//By default category set to 0 which is fresh food
+//In here 3 derived classes used as store/ Inventory
+
+//ItemID is defined by itemcount * 10 + categoryID
+//Since at the begining there is no CategoryID or connection between them tempCatid created and set to 0
+
+//Manager have suffix 231, cashier 3, floor worker 2, owner 0

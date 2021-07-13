@@ -6,6 +6,7 @@
 #define INVENTORY_ITEMS_H
 
 #include <iostream>
+#include "Category.h"
 
 using namespace std;
 
@@ -19,10 +20,13 @@ private:
     int discounts;
     int promotionsItem;
     double finalPrice;
-    int categoryID;
+    int tempCategoryID;
     static int count;
+
 public:
+    //friend class Category;
     Items();
+
     void setItemID(int val);
     void setItemName(string name);
     void setQuantity(int val);
@@ -31,21 +35,56 @@ public:
     void setDiscounts(int val);
     void setPromotionsItem(int val);
     void setFinalPrice(int val);
-    void setCategoryId(int val);
+    void setTempCategoryId(int val);
 
 
     int getItemID();
     string getItemName();
     int getQuantity();
     bool getGramNumberItem();
-    int getRetailsPrice();
+    double getRetailsPrice();
     int getDiscounts();
     int getPromotionsItem();
-    int getFinalPrice();
-    int getCategoryId();
+    double getFinalPrice();
+    int getTempCategoryId();
 
     void setItem();
 };
 
 
 #endif //INVENTORY_ITEMS_H
+
+/*
+ *
+- itemID : int
+- itemName : string
+- quantity; : float
+- gramNumberItem : bool
+- retailsPrice : double
+- discounts : int
+- promotionsItem : int
+- finalPrice : double
+- categoryID : int
+- count : int
+
++ setItemID(int val) : int
++ setItemName(string name) : string
++ setQuantity(int val) : int
++ setGramNumberItem(bool val) : bool
++ setRetailsPrice(int val) : int
++ setDiscounts(int val) : int
++ setPromotionsItem(int val) : int
++ setFinalPrice(int val) : int
++ setCategoryId(int val) : int
+
++ getItemID(): int
++ getItemName(): string
++ getQuantity(): int
++ getGramNumberItem(): bool
++ getRetailsPrice(): int
++ getDiscounts(): int
++ getPromotionsItem(): int
++ getFinalPrice(): int
++ getCategoryId(): int
+
+ */

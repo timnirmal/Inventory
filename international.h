@@ -31,3 +31,17 @@ public:
 
 
 #endif //INVENTORY_INTERNATIONAL_H
+
+/*
+- countryOrigin : string
+- dateArrHarbour : string
+- shipId : int
+
++ setCountryOrigin(string country) : void
++ setDateArrHarbour(string date) : void
++ setShipID(int id) : void
+
++ getCountryOrigin() : string
++ getDateArrHarbour() : string
++ getShipID() : string
+*/

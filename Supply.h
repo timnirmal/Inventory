@@ -42,3 +42,5 @@ public:
 
 
 #endif //INVENTORY_SUPPLY_H
+
+

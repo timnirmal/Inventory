@@ -11,23 +11,23 @@ Supply::Supply() {
 }
 
 void Supply::setItemName(string name) {
-itemName = name;
+    itemName = name;
 }
 
 void Supply::setQuantity(float val) {
-quantity = val;
+    quantity = val;
 }
 
 void Supply::setGramNumberItem(bool bval) {
-gramNumberItem = bval;
+    gramNumberItem = bval;
 }
 
 void Supply::setDateArrival(string date) {
-DateArrival = date;
+    DateArrival = date;
 }
 
 void Supply::setStatus(bool bstat) {
-status = bstat;
+    status = bstat;
 }
 
 int Supply::getItemID() {

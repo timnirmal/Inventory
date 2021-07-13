@@ -16,8 +16,8 @@ void Local::setDateDep(string date) {
 dateDep = date;
 }
 
-void Local::setVehicleID(int id) {
-vehicleId = id;
+void Local::setRegNumberVehicle(int id) {
+    regNumberVehicle = id;
 }
 
 string Local::getNameOrigin() {
@@ -28,6 +28,6 @@ string Local::getDateDep() {
     return dateDep;
 }
 
-int Local::getVehicleID() {
-    return vehicleId;
+int Local::getRegNumberVehicle() {
+    return regNumberVehicle;
 }

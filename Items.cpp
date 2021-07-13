@@ -3,9 +3,10 @@
 //
 
 #include "Items.h"
+#include "Category.h"
 
 void Items::setItem() {
-    itemID =0;
+    itemID = 0;
     itemName = "Item Name";
     quantity = 0;
     retailsPrice = 0;
@@ -15,7 +16,10 @@ void Items::setItem() {
 }
 
 Items::Items() {
-    itemID = ++count;
+    tempCategoryID = 0; //By default
+
+    itemID = ((++count) * 10) + tempCategoryID;
+
     itemName = "Item Name";
     quantity = 0;
     retailsPrice = 0;
@@ -24,40 +28,53 @@ Items::Items() {
     finalPrice = 0;
 }
 
+/*
+Items::Items(int cat) {
+    a.categoryID = cat;
+    itemID = ((++count )*10)+ categoryID;
+    itemName = "Item Name";
+    quantity = 0;
+    retailsPrice = 0;
+    discounts = 0;
+    promotionsItem = 0;
+    finalPrice = 0;
+}*/
+
 void Items::setGramNumberItem(bool val) {
     gramNumberItem = val;
 }
 
 void Items::setItemID(int val) {
-itemID =val;
+    itemID = val;
 }
 
 void Items::setItemName(string name) {
-itemName=name;
+    itemName = name;
 }
 
 void Items::setQuantity(int val) {
-quantity = val;
+    quantity = val;
 }
 
 void Items::setRetailsPrice(int val) {
-retailsPrice = val;
+    retailsPrice = val;
 }
 
 void Items::setDiscounts(int val) {
-discounts = val;
+    discounts = val;
 }
 
 void Items::setPromotionsItem(int val) {
-promotionsItem = val;
+    promotionsItem = val;
 }
 
 void Items::setFinalPrice(int val) {
-finalPrice = val;
+    finalPrice = val;
 }
 
-void Items::setCategoryId(int val) {
-categoryID = val;
+
+void Items::setTempCategoryId(int val) {
+    tempCategoryID = val;
 }
 
 int Items::getItemID() {
@@ -72,7 +89,7 @@ int Items::getQuantity() {
     return quantity;
 }
 
-int Items::getRetailsPrice() {
+double Items::getRetailsPrice() {
     return retailsPrice;
 }
 
@@ -84,12 +101,12 @@ int Items::getPromotionsItem() {
     return promotionsItem;
 }
 
-int Items::getFinalPrice() {
+double Items::getFinalPrice() {
     return finalPrice;
 }
 
-int Items::getCategoryId() {
-    return categoryID;
+int Items::getTempCategoryId() {
+    return tempCategoryID;
 }
 
 bool Items::getGramNumberItem() {

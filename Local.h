@@ -13,19 +13,30 @@ class Local : public Supply{
 private:
     string nameOrigin;
     string dateDep;
-    int vehicleId;
+    int regNumberVehicle;
 public:
     Local();
 
     void setNameOrigin(string name);
     void setDateDep(string date);
-    void setVehicleID(int id);
+    void setRegNumberVehicle(int id);
 
     string getNameOrigin();
     string getDateDep();
-    int getVehicleID();
+    int getRegNumberVehicle();
 
 };
 
 
 #endif //INVENTORY_LOCAL_H
+
+/*
+- nameOrigin : string
+- dateDep : string
+- regNumberVehicle : string
+
+- vehicleId : int
+- vehicleType : string
+- regNumberVehicle : string
+*/
+

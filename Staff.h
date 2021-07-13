@@ -17,8 +17,9 @@ private:
     static int countStaff;
 public:
     Staff();
+    Staff(int positionID);
 
-    void setUserID();
+    void setUserID(int val);
     void setUserName(string name);
     void setPassword(string pass);
     void setPosition(string pos);
@@ -33,3 +34,12 @@ public:
 
 
 #endif //INVENTORY_STAFF_H
+
+/*
+ userId : int
+- userName : string
+- password : string
+- Position : string
+- dateJoined : string
+- countStaff : int
+ */

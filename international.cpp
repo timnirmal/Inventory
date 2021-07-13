@@ -9,15 +9,15 @@ international::international() {
 }
 
 void international::setCountryOrigin(string country) {
-countryOrigin = country;
+    countryOrigin = country;
 }
 
 void international::setDateArrHarbour(string date) {
-dateArrHarbour = date;
+    dateArrHarbour = date;
 }
 
 void international::setShipID(int id) {
-shipId = id;
+    shipId = id;
 }
 
 string international::getCountryOrigin() {
