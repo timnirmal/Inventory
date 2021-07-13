@@ -263,35 +263,48 @@ int main() {
                 cout<<"Welcome "<< owner.getUserName()<<"..."<<endl<<"You are Logged as Admin";
                 role = 0;
             }
+            else {
+                cout<<"Wrong user name or password.";
+                break;
+            }
             break;
         case 1:
             //Manager
-            for (int i=0; i<manager.size();i++){
-                if(manager[i].getUserID() == UID && manager[i].getPassword() == Password){
-                    cout<<"Welcome "<< manager[i].getUserName()<<"..."<<endl<<"You are Logged as Manager";
+            for (auto & i : manager){
+                if(i.getUserID() == UID && i.getPassword() == Password){
+                    cout<<"Welcome "<< i.getUserName()<<"..."<<endl<<"You are Logged as Manager";
                     role = 1;
+                }
+                else {
+                    cout<<"Wrong user name or password.";
+                    break;
                 }
             }
             break;
         case 2:
             //Floor Worker
-            for (int i=0; i<worker.size();i++){
-                if(worker[i].getUserID() == UID && worker[i].getPassword() == Password){
-                    cout<<"Welcome "<< worker[i].getUserName()<<"..."<<endl<<"You are Logged as Floor Worker";
+            for (auto & i : worker){
+                if(i.getUserID() == UID && i.getPassword() == Password){
+                    cout<<"Welcome "<< i.getUserName()<<"..."<<endl<<"You are Logged as Floor Worker";
                     role = 2;
+                }
+                else {
+                    cout<<"Wrong user name or password.";
+                    break;
                 }
             }
             break;
         case 3:
             //Cashier
-            for (int i=0; i<cashier.size();i++){
-                if(cashier[i].getUserID() == UID && cashier[i].getPassword() == Password){
-                    cout<<"Welcome "<< cashier[i].getUserName()<<"..."<<endl<<"You are Logged as Cashier";
+            for (auto & i : cashier){
+                if(i.getUserID() == UID && i.getPassword() == Password){
+                    cout<<"Welcome "<< i.getUserName()<<"..."<<endl<<"You are Logged as Cashier";
                     role = 3;
                 }
-            }
-            else {
-                cout<<"HUMM";
+                else {
+                    cout<<"Wrong user name or password.";
+                    break;
+                }
             }
             break;
         default:
