@@ -12,7 +12,7 @@
 
 using namespace std;
 
-enum category_list{Produce,Meat_Seafood,Grains,Bakery,Frozen,Dairy,Snacks_Sweets,Beverages,Health_Beauty,Condiments_Spices};
+//enum category_list{Produce,Meat_Seafood,Grains,Bakery,Frozen,Dairy,Snacks_Sweets,Beverages,Health_Beauty,Condiments_Spices};
 //Produce - 0,Meat_Seafood - 1,
 //Grains - 2,
 //Bakery - 3,Frozen - 4,Dairy - 5, Snacks_Sweets - 6,Beverages - 7,Health_Beauty - 8,Condiments_Spices - 9
@@ -99,32 +99,129 @@ int Staff::countStaff=-1;
 int Supply::countSup=-1;
 int Items::count=-1;
 
+//10 Vectors for Store items.
+vector<numberGram> Produce;
+vector<numberGram> Meat_Seafood;
+vector<numberGramBrand> Grains;
+vector<numberItemBrand> Bakery;
+vector<numberItemBrand> Frozen;
+vector<numberItemBrand> Dairy;
+vector<numberItemBrand> Snacks_Sweets;
+vector<numberItemBrand> Beverages;
+vector<numberItemBrand> Health_Beauty;
+vector<numberItemBrand> Condiments_Spices;
+
+//Staff 4
+Owner owner;    //id = 0
+vector<Manager> manager;
+vector<FloorWorker> worker;
+vector<Cashier> cashier;
+
+void makeItem(){
+    /////================ vector<numberGram> Produce;
+    //vector<numberGram> Meat_Seafood;
+    //vector<numberGramBrand> Grains;
+    //vector<numberItemBrand> Bakery;
+    //Example of adding items to category vector
+    for(int i=0; i<1;i++){
+        numberGram rice;
+        rice.setCategoryId(1);
+        rice.setItemName("Rice");
+        rice.setQuantity(10);
+        rice.setRetailsPrice(120);
+        rice.setDiscounts(5);
+        rice.setFinalPrice(110);
+        Produce.push_back(rice);
+    }
+    for(int i=0; i<1;i++){
+        numberGramBrand Munata;
+        Munata.setCategoryId(3);
+        Munata.setItemName("Mun Ata");
+        Munata.setQuantity(20);
+        Munata.setRetailsPrice(250);
+        Munata.setDiscounts(10);
+        Munata.setFinalPrice(210);
+        Munata.setBrandName("Samaposha");
+        Grains.push_back(Munata);
+    }
+    for(int i=0; i<1;i++){
+        numberItemBrand lux;
+        lux.setCategoryId(8);
+        lux.setItemName("LUX");
+        lux.setQuantity(50);
+        lux.setRetailsPrice(50);
+        lux.setPromotionsItem(5);
+        lux.setFinalPrice(45);
+
+        Health_Beauty.push_back(lux);
+    }
+    cout<<Produce[0].getItemID()<<endl;
+    cout<<Grains[0].getItemID()<<endl;
+    cout<<Health_Beauty[0].getItemID()<<endl;
+}
+
+void makeStaff(){
+    owner.setUserName("Janaka");
+    owner.setPassword("1234");
+    owner.setDateJoined("2018");
+
+    for(int i=0; i<1;i++){
+        Manager staff;
+        staff.setUserName("Janaka");
+        staff.setPassword("1234");
+        staff.setDateJoined("2018");
+        manager.push_back(staff);
+    }
+    /*
+    cout << endl << endl << owner.getPosition() << endl;
+    cout << owner.getUserID() << endl;
+*/
+    for(int i =0; i<manager.size();i++) {
+        cout << endl << endl << manager[i].getPosition() << endl;
+        cout << manager[i].getUserID() << endl;
+    }
+
+    for(int i=0; i<1;i++){
+        Cashier staff;
+        cashier.push_back(staff);
+    }
+
+    for(int i =0; i<cashier.size();i++) {
+        cout << endl << endl << cashier[i].getPosition() << endl;
+        cout << cashier[i].getUserID() << endl;
+    }
+
+    for(int i=0; i<1;i++){
+        FloorWorker staff;
+        worker.push_back(staff);
+    }
+
+    for(int i =0; i<worker.size();i++) {
+        cout << endl << worker[i].getPosition() << endl;
+        cout << worker[i].getUserID() << endl;
+    }
+
+}
+
 int main() {
     //login
 
     ////================================= Items ===============
 
-    //10 Vectors for Store items.
-    vector<numberGram> Produce;
-    vector<numberGram> Meat_Seafood;
-    vector<numberGramBrand> Grains;
-    vector<numberItemBrand> Bakery;
-    vector<numberItemBrand> Frozen;
-    vector<numberItemBrand> Dairy;
-    vector<numberItemBrand> Snacks_Sweets;
-    vector<numberItemBrand> Beverages;
-    vector<numberItemBrand> Health_Beauty;
-    vector<numberItemBrand> Condiments_Spices;
+    makeItem();
+/*
+    cout<<endl<<Produce[0].getCategoryId();
+    cout<<endl<<Produce[0].getItemName();
+    cout<<endl<<Produce[0].getQuantity();
+    cout<<endl<<Produce[0].getRetailsPrice();
+    cout<<endl<<Produce[0].getDiscounts();
+    cout<<endl<<Produce[0].getFinalPrice();
+    cout<<endl<<Produce[1].getItemID();
+    cout<<endl<<endl;
 
-    //Example of adding items to category vector
-    for(int i=0; i<2;i++){
-        numberGram lux;
-        Produce.push_back(lux);
-    }
-
-    cout<<Produce[0].getItemID()<<endl;
-    cout<<Produce[1].getItemID()<<endl;
-
+    numberGram lux;
+    cout<<lux.getItemID()<<endl;
+*/
     /*
     numberGram Produce;
     numberGram Meat_Seafood;
@@ -148,11 +245,9 @@ int main() {
     numberItemBrand Condiments_Spices;
     */
 
-
-
     cout<<"Gonig to staff";
     ////================================= Staff ===============
-    Owner owner;    //id = 0
+    /*Owner owner;    //id = 0
     //Using Predefined 2 managers ,  5 cashier, 10 floor workers
     //Manager manager[2];
     //Cashier cashier[5];
@@ -160,36 +255,10 @@ int main() {
 
     vector<Manager> manager;
     vector<FloorWorker> worker;
-    vector<Cashier> cashier;
+    vector<Cashier> cashier;*/
 
-    for(int i=0; i<15;i++){
-        Manager staff;
-        manager.push_back(staff);
-    }
-    cout << endl << endl << owner.getPosition() << endl;
-    cout << owner.getUserID() << endl;
+    makeStaff();
 
-    for(int i =0; i<manager.size();i++) {
-        cout << endl << endl << manager[i].getPosition() << endl;
-        cout << manager[i].getUserID() << endl;
-    }
-
-    for(int i=0; i<2;i++){
-        Cashier staff;
-        cashier.push_back(staff);
-    }
-    for(int i =0; i<cashier.size();i++) {
-        cout << endl << endl << cashier[i].getPosition() << endl;
-        cout << cashier[i].getUserID() << endl;
-    }
-    for(int i=0; i<2;i++){
-        FloorWorker staff;
-        worker.push_back(staff);
-    }
-    for(int i =0; i<worker.size();i++) {
-        cout << endl << endl << worker[i].getPosition() << endl;
-        cout << worker[i].getUserID() << endl;
-    }
     /*
     cout<<"This =================== "<<manager[0].getUserID()<<endl;
     cout<<"This =================== "<<manager[1].getUserID()<<endl;
@@ -312,8 +381,11 @@ int main() {
             return 0;
     }
 
-    //It is requre a Database to keep this initial data. Since we dont use such a thing this stag
-    //4 Prefedined User accounts  will be used. (More accounts can be added.)
+    cout<<endl<<"Out"<<endl;
+
+    if (role == 0){
+        cout<<endl<<"Hey owner";
+    }
 
 
     return 0;

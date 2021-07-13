@@ -5,10 +5,10 @@
 #include "Staff.h"
 
 Staff::Staff() {
-    cout << "IN class : " << getPosition() << endl;
+    //cout << "IN class : " << getPosition() << endl;
     userId = ++countStaff;
-    cout << "\n\nIm Staff\n";
-    cout << "UID " << userId << endl;
+    //cout << "\n\nIm Staff\n";
+    //cout << "UID " << userId << endl;
 }
 
 Staff::Staff(int positionID) {
@@ -24,8 +24,8 @@ Staff::Staff(int positionID) {
     }
 
     userId = (++countStaff * 10) + positionID;
-    cout << "\n\nIm Staff\n";
-    cout << "UID " << userId << endl;
+    //cout << "\n\nIm Staff\n";
+    //cout << "UID " << userId << endl;
 }
 
 int Staff::getUserID() {
