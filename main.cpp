@@ -50,6 +50,7 @@ numberItemBrand::numberItemBrand()  {
 class FloorWorker : virtual public Staff {
 public:
     FloorWorker();
+    void StockItems();
 };
 
 FloorWorker::FloorWorker() {
@@ -58,6 +59,8 @@ FloorWorker::FloorWorker() {
     if(getUserID()!= 0)
         setUserID((getUserID()*10) + 2);
 }
+
+
 
 class Cashier : virtual public Staff {
 public:
@@ -99,23 +102,9 @@ int Staff::countStaff=-1;
 int Supply::countSup=-1;
 int Items::count=-1;
 
-//10 Vectors for Store items.
-vector<numberGram> Produce;
-vector<numberGram> Meat_Seafood;
-vector<numberGramBrand> Grains;
-vector<numberItemBrand> Bakery;
-vector<numberItemBrand> Frozen;
-vector<numberItemBrand> Dairy;
-vector<numberItemBrand> Snacks_Sweets;
-vector<numberItemBrand> Beverages;
-vector<numberItemBrand> Health_Beauty;
-vector<numberItemBrand> Condiments_Spices;
+void FloorWorker::StockItems() {
 
-//Staff 4
-Owner owner;    //id = 0
-vector<Manager> manager;
-vector<FloorWorker> worker;
-vector<Cashier> cashier;
+}
 
 void makeItem(){
     /////================ vector<numberGram> Produce;
@@ -203,11 +192,51 @@ void makeStaff(){
 
 }
 
+void makeSupply(){
+    cout<<"Local Supply"<<endl;
+    for(int i=0; i<1;i++){
+        Local lux;
+
+        lux.setItemName("Baby saban");
+        lux.setQuantity(20);
+        lux.setGramNumberItem(1);
+        lux.setDateArrival("23.04");
+        lux.setStatus("Not Approved");
+
+        lux.setNameOrigin("");
+        lux.setDateDep("");
+        lux.setRegNumberVehicle(23234);
+
+        localSupply.push_back(lux);
+    }
+
+    cout<<endl<<localSupply[0].getItemID()<<endl;
+
+    cout<<"International Supply"<<endl;
+    for(int i=0; i<2;i++){
+        international lux;
+
+        lux.setItemName("Baby saban");
+        lux.setQuantity(20);
+        lux.setGramNumberItem(1);
+        lux.setDateArrival("23.04");
+        lux.setStatus("Not Approved");
+
+        lux.setCountryOrigin("");
+        lux.setDateArrHarbour("");
+        lux.setShipID(23234);
+
+        internationalSupply.push_back(lux);
+    }
+
+    cout<<endl<<internationalSupply[0].getItemID()<<endl;
+    cout<<endl<<internationalSupply[1].getItemID()<<endl;
+}
+
 int main() {
     //login
 
     ////================================= Items ===============
-
     makeItem();
 /*
     cout<<endl<<Produce[0].getCategoryId();
@@ -244,7 +273,6 @@ int main() {
     numberItemBrand Health_Beauty;
     numberItemBrand Condiments_Spices;
     */
-
     cout<<"Gonig to staff";
     ////================================= Staff ===============
     /*Owner owner;    //id = 0
@@ -256,9 +284,7 @@ int main() {
     vector<Manager> manager;
     vector<FloorWorker> worker;
     vector<Cashier> cashier;*/
-
     makeStaff();
-
     /*
     cout<<"This =================== "<<manager[0].getUserID()<<endl;
     cout<<"This =================== "<<manager[1].getUserID()<<endl;
@@ -270,7 +296,6 @@ int main() {
     cout<<"UID "<<jaye.getUserID()<<endl;
     cout<<"Owner is "<< jaye.getUserName();
 */
-
     ////================================= Supply ===============
     /*international lol;
     Local lo;
@@ -281,32 +306,10 @@ int main() {
 
     cout<<lo.getItemName(); cout<<endl;
     cout<<lo.getNameOrigin()<<"  "<<lo.getItemID() <<"\n int  "<<lol.getItemID();*/
-
-    vector<international> internationalSupply;
-    vector<Local> localSupply;
-
-    cout<<"Local Supply"<<endl;
-    for(int i=0; i<2;i++){
-        Local lux;
-        localSupply.push_back(lux);
-    }
-
-    cout<<endl<<localSupply[0].getItemID()<<endl;
-    cout<<endl<<localSupply[1].getItemID()<<endl;
-
-    cout<<"International Supply"<<endl;
-    for(int i=0; i<2;i++){
-        international lux;
-        internationalSupply.push_back(lux);
-    }
-
-    cout<<endl<<internationalSupply[0].getItemID()<<endl;
-    cout<<endl<<internationalSupply[1].getItemID()<<endl;
+    makeSupply();
 
 
     owner.setPassword("1234");
-
-
 
 
     //Programme Starts Here
